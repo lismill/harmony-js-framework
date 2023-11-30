@@ -1,7 +1,16 @@
 <div class="container">
-  <div><text>1111</text></div>
+  <div>
+    <text>{{ time }}</text>
+  </div>
   <div><text>2222</text></div>
-  <div><text>3333</text></div>
+  <div>
+    <text>{{ username }}</text>
+  </div>
+  <div><button onclick="handleClick" class="button">发起接口请求</button></div>
+  <div for="{{(index, list) in lists}}" tid="date">
+    <text>{{ index }}.{{ list.date }}.{{ list.number }}</text>
+  </div>
+  <div><text>end...</text></div>
 </div>
 
 <element name="l-card" src="../../common/components/l-layout/index.hml"></element>

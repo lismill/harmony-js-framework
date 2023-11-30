@@ -50,15 +50,15 @@
 ## 路由跳转
 
 ```js
-import router from '@ohos.router'
+import router from '@ohos.router';
 export default {
   launch() {
     router.push({
       url: 'pages/detail/detail',
-    })
+    });
     // router.back();
   },
-}
+};
 ```
 
 ## 常用组件
@@ -114,7 +114,7 @@ root = true
 
 [*]
 charset = utf-8
-max_line_length = 120
+max_line_length = 136
 indent_style = space
 indent_size = 2
 end_of_line = lf
@@ -136,7 +136,7 @@ trim_trailing_whitespace = false
 ```
 {
   "tabWidth": 2,
-  "printWidth": 120,
+  "printWidth": 136,
   "semi": true,
   "singleQuote": false,
   "trailingComma": "all",
@@ -196,6 +196,53 @@ module.exports = {
 ```js
 import dayjs = require('dayjs')
 console.log(dayjs().format('YYYY-MM-DD HH:mm:ss'))
+```
+
+## 网络请求
+
+```html
+<div for="{{(index, list) in lists}}" tid="date">
+  <text>{{ index }}.{{ list.date }}.{{ list.number }}</text>
+</div>
+```
+
+```js
+import http from '@system.fetch';
+import dayjs from 'dayjs';
+
+export default {
+  data: {
+    title: '',
+    username: 'leelean',
+    name: '123',
+    time: dayjs().format('YYYY-MM-DD HH:mm:ss'),
+    lists: [],
+  },
+  onInit() {
+    this.title = this.$t('strings.world');
+  },
+  async handleClick() {
+    console.log(this);
+    console.log('xxxxxx:::res:::', 123123);
+    this.username === 'leeleanlean' ? (this.username = 'leelean') : (this.username = 'leeleanlean');
+    http.fetch({
+      url: 'https://syjcfcx.cn/api/v1/opendata-shanghai-house-sell?page=1&size=2',
+      responseType: 'json',
+      success: (res) => {
+        console.log('res:success:data', JSON.stringify(res.data));
+        console.log('res:success', JSON.stringify(res));
+        this.lists = res.data.data.list;
+        console.log('res:success:lists:', this.lists);
+      },
+      fail(error) {
+        JSON.stringify('res:fail', error);
+      },
+      complete() {
+        console.log('res:complete');
+      },
+    });
+  },
+};
 ```
 
 ## 配置提交代码前进行 eslint 校验

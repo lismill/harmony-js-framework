@@ -2,9 +2,10 @@
 
 .container {
   color: $primary-color;
+  font-size: 46px;
 
-  display: flex;
-  & > div {
-    width: 33.333333%;
+  flex-direction: column;
+  .button {
+    padding: 32px;
   }
 }
