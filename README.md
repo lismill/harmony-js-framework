@@ -282,3 +282,54 @@ git commit -m 'test: 测试'
 
 ✖   found 2 problems, 0 warnings
 ```
+
+## 配置询问式 commit 信息
+
+### 安装
+
+`npm install commitizen cz-conventional-changelog --save-dev`
+
+### 配置
+
+`package.json`
+
+```
+// ...
+"scripts": {
+  // ...
+  "commit": "git cz"
+},
+"config": {
+  "commitizen": {
+    "path": "./node_modules/cz-conventional-changelog"
+  }
+}
+```
+
+### 使用
+
+`npm run commit`
+
+```
+$ npm run commit
+
+> vite-vue-ts@0.0.0 commit E:\vite\vite-vue-ts
+> git add . && git cz
+
+cz-cli@4.2.4, cz-conventional-changelog@3.3.0
+
+? Select the type of change that you're committing: feat:     A new feature
+? What is the scope of this change (e.g. component or file name): (press enter to skip)
+? Write a short, imperative tense description of the change (max 94 chars):
+ (13) 询问式 commit 信息
+? Provide a longer description of the change: (press enter to skip)
+
+? Are there any breaking changes? No
+? Does this change affect any open issues? No
+
+> vite-vue-ts@0.0.0 lint E:\vite\vite-vue-ts
+> eslint "src/**/*.{js,ts,jsx,vue}"
+
+[master 7af568d] feat: 询问式 commit 信息
+ 3 files changed, 766 insertions(+), 86 deletions(-)
+```
