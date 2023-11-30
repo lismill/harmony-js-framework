@@ -1,0 +1,10 @@
+@import "../../common/assets/css/index.scss";
+
+.container {
+  color: $primary-color;
+
+  display: flex;
+  & > div {
+    width: 33.333333%;
+  }
+}
