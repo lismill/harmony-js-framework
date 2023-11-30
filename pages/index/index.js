@@ -12,6 +12,9 @@ export default {
   onInit() {
     this.title = this.$t('strings.world');
   },
+  openDialog() {
+    this.$element('dialogId').show();
+  },
   async handleClick() {
     console.log(this);
     console.log('xxxxxx:::res:::', 123123);

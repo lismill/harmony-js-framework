@@ -11,6 +11,15 @@
     <text>{{ index }}.{{ list.date }}.{{ list.number }}</text>
   </div>
   <div><text>end...</text></div>
+  <div><switch checked="true"></switch></div>
+  <div class="doc-page">
+    <dialog class="dialogClass" id="dialogId" dragable="true">
+      <div class="content">
+        <text>this is a dialog</text>
+      </div>
+    </dialog>
+    <button value="click me" onclick="openDialog"></button>
+  </div>
 </div>
 
 <element name="l-card" src="../../common/components/l-layout/index.hml"></element>
