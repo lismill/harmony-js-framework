@@ -105,3 +105,44 @@ export default {
   },
 }
 ```
+
+## 配置 typescript 支持
+
+```bash
+# 1. 安装依赖
+npx tsc --init
+
+# 2. 初始化配置文件 tsconfig.json
+npm install typescript @types/node --save-dev
+
+# 3. 配置编译目录 tsconfig.json
+"include": [
+  "pages/**/*.ts",
+  "common/**/*.ts",
+],
+
+# 4. 配置编译命令 package.json
+"scripts": {
+  "tsc": "tsc -W"
+},
+```
+
+## 配置编辑器格式
+
+```json
+// .editorconfig
+root = true
+
+[*]
+charset = utf-8
+max_line_length = 120
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+```

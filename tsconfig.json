@@ -1,0 +1,7 @@
+{
+  "include": [
+    "app.ts",
+    "pages/**/*.ts",
+    "common/**/*.ts",
+  ],
+}
