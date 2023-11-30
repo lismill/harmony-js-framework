@@ -197,3 +197,88 @@ module.exports = {
 import dayjs = require('dayjs')
 console.log(dayjs().format('YYYY-MM-DD HH:mm:ss'))
 ```
+
+## 配置提交代码前进行 eslint 校验
+
+### 安装依赖
+
+`npm install -D husky`
+
+### 启用 Git hooks
+
+`npx husky install`
+
+`package.json`
+
+```
+scripts: {
+  // ...
+  "lint": "eslint \"{pages,common}/**/*.js\"",
+  "prepare": "husky install"
+}
+```
+
+### pre-commit
+
+```
+npx husky add .husky/pre-commit ""
+```
+
+### 修改内容
+
+`.husky/pre-commit`
+
+```
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npm run lint
+```
+
+## 配置提交代码前对提交信息进行校验
+
+### 安装
+
+`npm install @commitlint/cli @commitlint/config-conventional --save-dev`
+
+### 配置
+
+`commitlint.config.js`
+
+```
+module.exports = {
+  extends: ["@commitlint/config-conventional"],
+};
+```
+
+`.husky/commit-msg`
+
+```
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx --no-install commitlint --edit $1
+```
+
+### 提交信息规范
+
+```
+git commit -m 'feat: 新增功能'
+git commit -m 'fix: bug 修复'
+git commit -m 'perf: 性能优化'
+git commit -m 'docs: 文档更新'
+git commit -m 'docs: 文档更新'
+git commit -m 'style: 样式'
+git commit -m 'test: 测试'
+// ...
+```
+
+### 报错信息
+
+```
+⧗   input: 测试commitlint
+✖   subject may not be empty [subject-empty]
+✖   type may not be empty [type-empty]
+
+✖   found 2 problems, 0 warnings
+```
