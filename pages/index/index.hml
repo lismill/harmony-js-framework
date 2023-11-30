@@ -1,0 +1,17 @@
+<div class="container">
+  <list class="list">
+    <list-item class="listItem">
+      <text class="text">1</text>
+    </list-item>
+    <list-item class="listItem">
+      <l-card></l-card>
+    </list-item>
+    <list-item class="listItem">
+      <l-card></l-card>
+    </list-item>
+    <list-item>
+      <text>111</text>
+    </list-item>
+  </list>
+</div>
+<element name="l-card" src="../../common/components/l-layout/index.hml"></element>
