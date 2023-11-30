@@ -50,15 +50,15 @@
 ## 路由跳转
 
 ```js
-import router from "@ohos.router";
+import router from '@ohos.router'
 export default {
   launch() {
     router.push({
-      url: "pages/detail/detail",
-    });
+      url: 'pages/detail/detail',
+    })
     // router.back();
   },
-};
+}
 ```
 
 ## 常用组件
@@ -146,3 +146,66 @@ trim_trailing_whitespace = true
 trim_trailing_whitespace = false
 
 ```
+
+## 配置 Eslint + Prettier 代码规范和自动格式化
+
+### 安装 Prettier
+
+`npm install --save-dev prettier`
+`.prettierrc`
+
+```
+{
+  "tabWidth": 2,
+  "printWidth": 120,
+  "semi": true,
+  "singleQuote": false,
+  "trailingComma": "all",
+  "bracketSpacing": false
+}
+```
+
+### 安装 ESLint
+
+#### 安装和配置
+
+`npm install --save-dev eslint`
+
+`npx eslint --init`
+
+`.eslintrc.js`
+
+```
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+  },
+  extends: "standard-with-typescript",
+  overrides: [],
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
+  },
+  rules: {},
+};
+```
+
+#### VSCode 工作区配置
+
+`.vscode/settings.json`
+
+```
+"editor.codeActionsOnSave": {
+  "source.fixAll.eslint": true
+}
+```
+
+#### VSCode 默认格式化方式
+
+`右键 => 格式化文档的方式 => Prettier`
+
+#### 解决 Prettier 和 ESLint 的冲突
+
+`npm install --save-dev eslint-plugin-prettier` // 将 Prettier 的规则设置到 ESLint 的规则中。
+`npm install --save-dev eslint-config-prettier` // 关闭 ESLint 中与 Prettier 中会发生冲突的规则。

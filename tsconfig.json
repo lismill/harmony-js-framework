@@ -1,7 +1,14 @@
 {
+  "compilerOptions": {
+    "strictNullChecks": true
+  },
   "include": [
     "app.ts",
+    ".eslintrc.js",
     "pages/**/*.ts",
     "common/**/*.ts",
   ],
+  "exclude": [
+    ".eslintrc.js"
+  ]
 }
