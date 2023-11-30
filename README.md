@@ -106,27 +106,6 @@ export default {
 }
 ```
 
-## 配置 typescript 支持
-
-```bash
-# 1. 安装依赖
-npx tsc --init
-
-# 2. 初始化配置文件 tsconfig.json
-npm install typescript @types/node --save-dev
-
-# 3. 配置编译目录 tsconfig.json
-"include": [
-  "pages/**/*.ts",
-  "common/**/*.ts",
-],
-
-# 4. 配置编译命令 package.json
-"scripts": {
-  "tsc": "tsc -W"
-},
-```
-
 ## 配置编辑器格式
 
 ```json
@@ -209,3 +188,12 @@ module.exports = {
 
 `npm install --save-dev eslint-plugin-prettier` // 将 Prettier 的规则设置到 ESLint 的规则中。
 `npm install --save-dev eslint-config-prettier` // 关闭 ESLint 中与 Prettier 中会发生冲突的规则。
+
+## 常用插件 dayjs
+
+`npm install dayjs --save`
+
+```js
+import dayjs = require('dayjs')
+console.log(dayjs().format('YYYY-MM-DD HH:mm:ss'))
+```
